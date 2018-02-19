@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home";
+}
+<div style="text-align:center">
+    <div id="react-carousel" style="width:900px;display:inline-block" news="news/top/json"></div>
+</div>
+    <div id="react-homepage-root" news="news/all/json"></div> <!-- root element -->
+@section Scripts{
+    <script src="~/dist/homepage.js"></script>
+    }

@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dat = (string)ViewData["AlertShow"];
+    var dat2 = (string)ViewData["AlertMsg"];
+    ViewData["Title"] = "Registro";
+}
+
+<div style="text-align:center">
+    <div class="panel panel-default" style="max-width:800px;min-width:400px;display:inline-block">
+        <div class="panel-heading">
+            Registro
+        </div>
+        <div class="panel-body" style="text-align:left">
+            <form method="post" action="">
+                <div class="form-group">
+                    <label for="user">Usuario</label>
+                    <input type="text" id="user" name="user" placeholder="Usuario" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Contraseña</label>
+                    <input type="password" id="pwd" name="pwd" placeholder="Contraseña" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="pwd2">Repite la Contraseña</label>
+                    <input type="password" id="pwd2" name="pwd2" placeholder="Contraseña" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Nombre" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Apellido</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Apellido" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="mail">Correo electronico</label>
+                    <input type="email" id="mail" name="mail" placeholder="tu@correo.com" class="form-control" aria-describedby="emailDesc" />
+                </div>
+                <div class="form-group">
+                    <label for="country">Pais</label>
+                    <select class="form-control" id="country" name="country">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>Venezuela</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Registrar" />
+                <input type="reset" class="btn btn-secondary" value="Reiniciar" />
+            </form>
+        </div>
+    </div>
+    <div class="alert alert-danger" role="alert" style="display:@dat">
+        @dat2
+    </div>
+</div>
