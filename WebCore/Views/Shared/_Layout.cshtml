@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var User = ViewData["Account"] as string;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -37,19 +40,35 @@
             </ul>
             <ul class="nav navbar-form navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Iniciar Session
-                        <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu panel panel-default" aria-labelledby="navbarDropdownMenuLink">
-                        <div class="panel-heading">Ingresar</div>
-                        <div class="panel-body">
+                    @if (User == null)
+    {
+                <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Iniciar Session
+                    <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu panel panel-default" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="panel-heading">Ingresar</div>
+                    <div class="panel-body">
+                        <form action="/Account/Login" method="post">
                             <div class="form-group"><input type="text" class="form-control" id="luser" name="user" placeholder="Usuario" /></div>
-                            <div class="form-group"><input type="text" class="form-control" id="lpwd" name="pwd" placeholder="Contraseña" /></div>
+                            <div class="form-group"><input type="password" class="form-control" id="lpwd" name="pwd" placeholder="Contraseña" /></div>
                             <div class="form-group"><input type="checkbox" id="rem" name="remember" value="recordar" /><label for="rem">Recordar</label></div>
                             <div><input type="submit" class="btn btn-primary" value="Entrar" /></div>
-                        </div>
+                        </form>
                     </div>
+                </div>
+}
+else
+{
+                <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @User
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="dropdown-item"><a href="./Account">Perfil</a></li>
+                    <li class="dropdown-item"><a href="./Account/Logout">Cerrar Session</a></li>
+                </ul>
+}
                 </li>
             </ul>
         </div>

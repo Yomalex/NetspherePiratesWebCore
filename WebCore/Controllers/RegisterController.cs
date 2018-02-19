@@ -7,6 +7,7 @@ using WebCore.Models;
 using WebCore.Contexts;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
+using Microsoft.AspNetCore.Http;
 
 namespace WebCore.Controllers
 {
@@ -16,6 +17,7 @@ namespace WebCore.Controllers
         {
             ViewData["AlertShow"] = "none";
             ViewData["AlertMsg"] = "";
+            ViewData["Account"] = HttpContext.Session.GetString("Account");
             return View();
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace WebCore.Controllers
 {
@@ -10,6 +11,7 @@ namespace WebCore.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Account"] = HttpContext.Session.GetString("Account");
             return View();
         }
         public IActionResult top(string format = "html")

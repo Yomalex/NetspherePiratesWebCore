@@ -27,6 +27,9 @@ namespace WebCore
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddReact();
 
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
             return services.BuildServiceProvider();
         }
 
@@ -63,7 +66,7 @@ namespace WebCore
                 //  .AddScriptWithoutTransform("~/Scripts/bundle.server.js");
             });
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
