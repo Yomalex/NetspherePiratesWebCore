@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using WebCore.Models
+@{
+    ViewData["Title"] = "Ranking";
+    var table = ViewData["Rank"] as List<RankPlayer>;
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Mejores Jugadores
+    </div>
+    <div class="panel-body">
+        <table width="100%" border="0" cellpadding="3" cellspacing="3">
+            <thead>
+                <tr><td>#</td><td>Nombre</td><td>Nivel</td><td>Experiencia</td></tr>
+            </thead>
+            <tbody>
+                @foreach (var p in table)
+    {
+            @if (p.Rank % 2 == 1)
+            {
+                <tr style="background-color:#CCC">
+                    <td>@p.Rank</td>
+                    <td>@p.Name</td>
+                    <td>@p.Level</td>
+                    <td>@p.Exp</td>
+                </tr>
+                }
+                else {
+                <tr style="background-color:#999">
+                    <td>@p.Rank</td>
+                    <td>@p.Name</td>
+                    <td>@p.Level</td>
+                    <td>@p.Exp</td>
+                </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Mejores Clanes
+    </div>
+    <div class="panel-body">
+
+    </div>
+</div>
